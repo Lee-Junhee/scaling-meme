@@ -4,14 +4,14 @@ else
 	CC = gcc
 endif
 
-all: main.o
-	$(CC) -o <program> main.o
+all: parse.o
+	$(CC) -o argparse parse.o
 
-main.o: main.c
-	$(CC) -c main.c
+parse.o: parse.c
+	$(CC) -c parse.c
 
 run: all
-	./<program>
+	./argparse
 
 clean:
 	touch main.o
