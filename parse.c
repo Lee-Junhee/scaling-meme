@@ -5,11 +5,12 @@
 
 char ** parse_args(char *line) {
 	char **args = calloc(sizeof(char*), 6);
-	char placeholder[3] = "hi";
-	args[0] = placeholder;
-	int i = 0;
-	while (*(args + i)) {
-		args[i++] = strsep(&line, " ");
+	int i;
+	for(i=0;i<6;i++){
+		args[i] = strsep(&line, " ");
+		if (!args[i]) {
+			break;
+		}
 	}
 	return args;
 }
